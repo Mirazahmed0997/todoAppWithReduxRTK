@@ -1,7 +1,6 @@
 
 
-export interface ITask{
-       
+export interface ITask {
         id:String,
         title:String,
         description:String,
