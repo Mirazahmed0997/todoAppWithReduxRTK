@@ -1,5 +1,6 @@
 
 import { ModeToggle } from "@/components/Mode_togoller/ModeToggller";
+import { AddTaskModal } from "@/components/Module/AddTaskModal";
 import {
   Menubar,
   MenubarContent,
@@ -16,7 +17,10 @@ const Navbar = () => {
         <div>
             <Menubar>
   <MenubarMenu>
-    <MenubarTrigger>File</MenubarTrigger>
+   
+     <MenubarTrigger>File</MenubarTrigger>
+    <AddTaskModal></AddTaskModal>
+   
    
     <MenubarContent>
       <MenubarItem>
