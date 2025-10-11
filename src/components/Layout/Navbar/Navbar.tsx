@@ -10,6 +10,7 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import { Link } from "react-router";
 
 
 const Navbar = () => {
@@ -26,7 +27,7 @@ const Navbar = () => {
       <MenubarItem>
         New Tab <MenubarShortcut>⌘T</MenubarShortcut>
       </MenubarItem>
-      <MenubarItem>New Window</MenubarItem>
+      <MenubarItem><Link to='/task'>Tasks</Link></MenubarItem>
       <MenubarSeparator />
       <MenubarItem>Share</MenubarItem>
       <MenubarSeparator />
