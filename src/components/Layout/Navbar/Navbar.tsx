@@ -1,6 +1,5 @@
 
 import { ModeToggle } from "@/components/Mode_togoller/ModeToggller";
-import { AddTaskModal } from "@/components/Module/AddTaskModal";
 import {
   Menubar,
   MenubarContent,
@@ -10,6 +9,7 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import { TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Link } from "react-router";
 
 
@@ -20,7 +20,8 @@ const Navbar = () => {
   <MenubarMenu>
    
      <MenubarTrigger>File</MenubarTrigger>
-    <AddTaskModal></AddTaskModal>
+     
+    
    
    
     <MenubarContent>
@@ -29,9 +30,9 @@ const Navbar = () => {
       </MenubarItem>
       <MenubarItem><Link to='/task'>Tasks</Link></MenubarItem>
       <MenubarSeparator />
-      <MenubarItem>Share</MenubarItem>
+    
       <MenubarSeparator />
-      <MenubarItem>Print</MenubarItem>
+    
       <ModeToggle></ModeToggle>
     </MenubarContent>
   </MenubarMenu>
