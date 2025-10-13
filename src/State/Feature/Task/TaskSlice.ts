@@ -40,6 +40,12 @@ const todoSlice= createSlice({
                 ...action.payload,id,isCompleted:false
             }
             state.task.push(todoData)
+        },
+        toggolCompleteState: (state, action: PayloadAction<string>)=>
+        {
+            state.task.forEach((singletask)=>singletask.id===action.payload ? (singletask.isCompleted= !singletask.isCompleted )
+            : singletask
+        )
         }
     }
 })
@@ -53,7 +59,7 @@ export const selectFilter = (state: RootState)=>
     return state.todos.filter
 }
 
-export const { addTodo } = todoSlice.actions
+export const { addTodo ,toggolCompleteState} = todoSlice.actions
 
 
 

@@ -1,5 +1,5 @@
-import { selectTask } from "@/State/Feature/Task/TaskSlice";
-import { useAppSelector } from "@/State/hooks";
+import { selectTask, toggolCompleteState } from "@/State/Feature/Task/TaskSlice";
+import { useAppDispatch, useAppSelector } from "@/State/hooks";
 import {
   Table,
   TableBody,
@@ -14,6 +14,8 @@ const Task = () => {
 
     const tasks= useAppSelector(selectTask)
     console.log(tasks)
+
+    const dispatch= useAppDispatch()
 
     return (
         <div>
@@ -51,7 +53,16 @@ const Task = () => {
         )}
       </TableCell>
       <TableCell>{task.dueDate}</TableCell>
-      <TableCell>{task.isCompleted ? "✅" : "❌"}</TableCell>
+      <TableCell>
+  <input
+    type="checkbox"
+    checked={task.isCompleted}
+    onChange={() => dispatch(toggolCompleteState(task.id))}
+    className="w-5 h-5 cursor-pointer accent-green-600"
+  />
+</TableCell>
+
+      {/* <TableCell>{task.isCompleted ? "✅" : "❌"}</TableCell> */}
     </TableRow>
   ))
 }

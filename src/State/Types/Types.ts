@@ -1,13 +1,13 @@
 
 
 export interface ITask {
-        id:String,
-        title:String,
-        description:String,
-        dueDate:String,
-        isCompleted: boolean,
-        priority: "High" | "Medium" | "Low"
-    
+  id: string;
+  title: string;
+  description: string;
+  priority: "Low" | "Medium" | "High";
+  dueDate: string;
+  isCompleted: boolean;
 }
+
 
  
