@@ -1,5 +1,6 @@
-import { selectTask, toggolCompleteState } from "@/State/Feature/Task/TaskSlice";
+import { deleteTask, selectTask, toggolCompleteState } from "@/State/Feature/Task/TaskSlice";
 import { useAppDispatch, useAppSelector } from "@/State/hooks";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -9,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { Trash } from "lucide-react";
 
 const Task = () => {
 
@@ -62,8 +64,21 @@ const Task = () => {
   />
 </TableCell>
 
-      {/* <TableCell>{task.isCompleted ? "✅" : "❌"}</TableCell> */}
+
+      <TableCell>
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => dispatch(deleteTask(task.id))}
+                >
+                  <Trash></Trash>
+                </Button>
+              </TableCell>
+
+
     </TableRow>
+
+    
   ))
 }
 
