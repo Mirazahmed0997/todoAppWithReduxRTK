@@ -7,6 +7,7 @@ export interface ITask {
   priority: "Low" | "Medium" | "High";
   dueDate: string;
   isCompleted: boolean;
+ assignTo:string| null;
 }
 
 

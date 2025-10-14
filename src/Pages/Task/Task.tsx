@@ -14,9 +14,12 @@ import {
 } from "@/components/ui/table";
 import { Trash } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"; // ✅ use shadcn/ui Tabs, not @radix-ui/react-tabs
+import { selectUsers } from "@/State/Feature/User/UserSlice";
 
 const Task = () => {
   const tasks = useAppSelector(selectTask);
+  const users= useAppSelector(selectUsers)
+  console.log("tasks",tasks)
   const dispatch = useAppDispatch();
 
   return (
@@ -83,6 +86,8 @@ const Task = () => {
 
               <TableCell>{task.dueDate}</TableCell>
 
+
+
               <TableCell>
                 <input
                   type="checkbox"
@@ -103,6 +108,8 @@ const Task = () => {
                   Delete
                 </Button>
               </TableCell>
+                             <TableCell>{task? task.assignTo : " "}</TableCell>
+
             </TableRow>
           ))}
         </TableBody>

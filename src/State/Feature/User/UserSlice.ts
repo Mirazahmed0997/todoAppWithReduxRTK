@@ -15,7 +15,13 @@ interface UserState {
 
 // ✅ Initial data (optional)
 const initialState: UserState = {
-  users: [],
+  users: [
+    {
+    id: "123",
+    name:"Miraz",
+    email:"ahmedmiraz87@gmail.com"
+  }
+],
 };
 
 // ✅ Create the slice

@@ -19,12 +19,15 @@ import {
 } from "@/components/ui/select"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { useForm } from "react-hook-form"
-import { useAppDispatch } from "@/State/hooks"
+import { useAppDispatch, useAppSelector } from "@/State/hooks"
 import { addTodo } from "@/State/Feature/Task/TaskSlice"
+import { selectUsers } from "@/State/Feature/User/UserSlice"
 
 export function AddTaskModal() {
   const form = useForm()
   const dispatch= useAppDispatch()
+  const users=useAppSelector(selectUsers)
+  console.log("users",users)
   const onSubmit = (data: any) => {
     console.log(data)
     dispatch(addTodo(data))
@@ -120,6 +123,35 @@ export function AddTaskModal() {
                           <SelectItem value="high">High</SelectItem>
                           <SelectItem value="medium">Medium</SelectItem>
                           <SelectItem value="low">Low</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="assignTo"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-gray-700 font-medium">
+                      Assign to
+                    </FormLabel>
+                    <FormControl>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger className="border-gray-300 focus:border-red-500 focus:ring-red-500">
+                          <SelectValue placeholder="Select Person" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {
+                            users.map((user)=><SelectItem value={user.name}>{user.name}</SelectItem>)
+                          }
+                         
                         </SelectContent>
                       </Select>
                     </FormControl>
