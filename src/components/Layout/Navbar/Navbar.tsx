@@ -9,7 +9,6 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "@/components/ui/menubar"
-import { TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Link } from "react-router";
 
 
@@ -29,6 +28,7 @@ const Navbar = () => {
         New Tab <MenubarShortcut>⌘T</MenubarShortcut>
       </MenubarItem>
       <MenubarItem><Link to='/task'>Tasks</Link></MenubarItem>
+      <MenubarItem><Link to='/users'>User</Link></MenubarItem>
       <MenubarSeparator />
     
       <MenubarSeparator />
