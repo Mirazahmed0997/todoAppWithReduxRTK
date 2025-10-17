@@ -22,8 +22,10 @@ import { useForm } from "react-hook-form"
 import { useAppDispatch, useAppSelector } from "@/State/hooks"
 import { addTodo } from "@/State/Feature/Task/TaskSlice"
 import { selectUsers } from "@/State/Feature/User/UserSlice"
+import { useState } from "react"
 
 export function AddTaskModal() {
+  const [open,setOpen]= useState(false)
   const form = useForm()
   const dispatch= useAppDispatch()
   const users=useAppSelector(selectUsers)
@@ -31,10 +33,12 @@ export function AddTaskModal() {
   const onSubmit = (data: any) => {
     console.log(data)
     dispatch(addTodo(data))
+    setOpen(false)
+    form.reset()
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button className="bg-red-600 hover:bg-red-700 transition-all duration-200">
           Create Task

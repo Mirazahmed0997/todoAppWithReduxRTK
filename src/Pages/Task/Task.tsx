@@ -108,8 +108,7 @@ const Task = () => {
                   Delete
                 </Button>
               </TableCell>
-                             <TableCell>{task? task.assignTo : " "}</TableCell>
-
+                  <TableCell>Assign to - {task? task.assignTo : "None"}</TableCell>
             </TableRow>
           ))}
         </TableBody>

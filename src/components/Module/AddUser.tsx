@@ -13,18 +13,22 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useForm } from "react-hook-form"
 import { useAppDispatch } from "@/State/hooks"
 import { addUser } from "@/State/Feature/User/UserSlice"
+import { useState } from "react"
 
 export function AddUserModal() {
+  const [open,setOpen]= useState(false)
   const form = useForm()
   const dispatch = useAppDispatch()
 
   const onSubmit = (data: any) => {
     console.log(data)
+    setOpen(false)
+    form.reset()
     dispatch(addUser(data))
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button className="bg-blue-600 hover:bg-blue-700 transition-all duration-200">
           Add User

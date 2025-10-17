@@ -16,7 +16,7 @@ const initialState: InitialState = {
       dueDate: "2025-11",
       isCompleted: false,
       priority: "High",
-      assignTo:""
+      assignTo:null
     },
     {
       id: "gdfgfjdvbv",
@@ -25,7 +25,7 @@ const initialState: InitialState = {
       dueDate: "2025-11",
       isCompleted: true,
       priority: "Low",
-      assignTo:""
+      assignTo:null
     },
   ],
   filter: "all",
@@ -38,7 +38,7 @@ const todoSlice = createSlice({
     addTodo: (state, action: PayloadAction<ITask>) => {
       // generate a simple id if not provided
       const id = Math.random().toString(36).substring(2, 9);
-      const todoData = { ...action.payload, id, isCompleted: false };
+      const todoData = { ...action.payload, id, isCompleted: false,assignTo : action.payload.assignTo? action.payload.assignTo:null};
       state.task.push(todoData);
     },
 
